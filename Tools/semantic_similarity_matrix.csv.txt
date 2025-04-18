@@ -1,0 +1,31 @@
+import openai
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+openai.api_key = "your-api-key-here"
+
+# Load terms from CSV
+df = pd.read_csv("terms.csv")
+terms = df['term'].tolist()
+
+# Get embeddings
+def get_embedding(text):
+    response = openai.Embedding.create(
+        model="text-embedding-ada-002",
+        input=text
+    )
+    return np.array(response['data'][0]['embedding'])
+
+embeddings = {term: get_embedding(term) for term in terms}
+
+# Create similarity matrix
+labels = list(embeddings.keys())
+vectors = np.array([embeddings[label] for label in labels])
+sim_matrix = cosine_similarity(vectors)
+
+# Format and save as CSV
+sim_df = pd.DataFrame(sim_matrix, index=labels, columns=labels)
+sim_df.to_csv("semantic_similarity_matrix.csv")
+
+print("Similarity matrix saved as semantic_similarity_matrix.csv")
