@@ -35,5 +35,5 @@ Whether you're a machine learning engineer with a taste for archetypes, a psycho
 -	AlephEcho · GitHub
 -	https://substack.com/@alephechoresearch
 -	Discord/Forum (tentative): for deeper community collaboration
-Aleph Echo is not about belief. It's about curiosity, structure, and the possibility that synchronicity, like meaning itself, might leave a trace.
-Stay tuned.
+  Aleph Echo is not about belief. It's about curiosity, structure, and the possibility that synchronicity, like meaning itself, might leave a trace.
+  Stay tuned.
